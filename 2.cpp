@@ -1,59 +1,66 @@
 #define _CRT_SECURE_NO_WARNINGS 
 #include <stdio.h>
 #include <string.h>
+#include <windows.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+void game()
+{
+	int q = 0;
+	int w = 0;
+	q = rand()%100+1;
+	while(1)
+	{
+		printf("请猜数字:\n");
+		scanf("%d", &w);
+		if (w > q)
+		{
+			printf("猜大了\n");
 
+		}
+		else if (w < q)
+		{
+			printf("猜小了\n");
+		}
+		else
+		{
+			printf("猜到了\n");
+			break;
+		}
+	}
 
+}
+void menu()
+{
+	printf("*******************\n");
+	printf("*** 1.play 0.no ***\n");
+	printf("*******************\n");
+}
 int main()
+{
+	srand(unsigned int(time(NULL)));
+	int a = 0;
+	do
 	{
-	
-	/*int a = 0;
-	scanf("%d", &a);
-	if (a % 2 == 0)
-		printf("偶数");
-	else if (a % 2 != 0)
-		printf("奇数");*/
-
-	//int i = 1;
-	//while (i <= 100)
-	//{
-	//	printf("%d", i);
-	//		i += 2;
-
-	//}
-	
-		int n = 5;/*3.2*/
-		int m = 3;
-	switch (n)
-	{
-		
-	case 1:
-		m++;
-	case 2:
-		n++;
-	case 3:
-		switch (m)
+		menu();
+		printf("请输入数字:");
+		scanf("%d", &a);
+		switch (a)
 		{
 		case 1:
-			n++;
-		case 2:
-			m++;
-			n++;
+			game();
+			printf("猜数字:\n");
+			break;
+		case 0:
+			printf("游戏结束!");
 			break;
 		default:
-			n--;
-			m--;
+			printf("重新输入:\n");
+			break;
 		}
-		
-	case 4:
-		m++;
-		break;
-		
-	default:
-		n++;
-		m--;
-		break;
-	}
-printf("n=%d m=%d\n", n, m);
+			
+	} while (a!=0);
 
 	return 0;
-	}
+}
