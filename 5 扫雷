@@ -1,0 +1,189 @@
+2.h
+#define _CRT_SECURE_NO_WARNINGS 
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define ROW 9
+#define COL 9
+#define ROWS ROW+2
+#define COLS COL+2
+#define JDL 10
+void q(char a[ROWS][COLS], int rows, int cols,char set);
+void s(char a[ROWS][COLS], int row, int col);
+void l(char a[ROWS][COLS], int row, int col);
+void o(char a[ROWS][COLS], char show[ROWS][COLS], int row, int col);
+--------------------------------------------------------------------------------------------------------
+
+2.game
+#include "2.h"
+
+
+ void q(char a[ROWS][COLS], int rows, int cols,char set)
+{
+	 int i = 0;
+	 int j = 0;
+	 for (i = 0; i < rows; i++)
+	 {
+		 for (j = 0; j < cols; j++)
+		 {
+			 a[i][j] = set;
+		 }
+
+	 }
+}
+
+ void s(char a[ROWS][COLS], int row, int col)
+ {
+	 int i = 0;
+	 int j = 0;
+
+	 for (i = 0; i <= col; i++)
+	 {
+		 printf("%d  ", i);
+	 }
+	 printf("\n");
+	 for (i = 1; i <= row; i++)
+	 {
+		 printf("%d ", i);
+		 for (j = 1; j <=col; j++)
+		 {
+			 printf(" %c ", a[i][j]);
+		 }
+		 printf("\n");
+	 }
+
+ }
+
+ void l(char a[ROWS][COLS], int row, int col)
+ {
+	 int x = 0;
+	 int y = 0;
+	 int p = JDL;
+		while(p)
+		{ 
+			x = rand() % 9+1;
+			y = rand() % 9+1;
+			if (a[x][y] == '0')
+			{
+				a[x][y] = '1';
+				p--;
+			}
+			 
+		}
+ }
+
+ int  gs(char a[ROWS][COLS], int x, int y)
+ {
+	 return a[x - 1][y] +
+		 a[x - 1][y - 1] +
+		 a[x][y - 1] +
+		 a[x + 1][y - 1] +
+		 a[x + 1][y] +
+		 a[x + 1][y + 1] +
+		 a[x][y + 1] +
+		 a[x - 1][y + 1] - 8 * '0';
+ }
+
+
+
+ void o(char a[ROWS][COLS], char show[ROWS][COLS], int row, int col)
+ {
+	 int x = 0;
+	 int y = 0;
+	 int v = 0;
+	 while (v<row*col-JDL)
+	 {
+		 printf("请输入坐标:");
+		 scanf("%d%d", &x, &y);
+		 if (x >= 1 && x <= row && y >= 1 && y <= col)
+		 {
+			 if (a[x][y] == '1')
+			 { 
+				 printf("很遗憾中奖了!\n");
+			 s(a, ROW, COL);
+			 break;
+			}
+			 else//不是雷显示周围雷的个数
+			 {
+				 
+				int z=gs(a, x, y);
+				show[x][y] = z+'0';
+				s(show, ROW, COL);
+				v++;
+			
+			 }
+		 }
+		 else
+		 {
+			 printf("坐标不合法，请重新输入\n");
+		 }
+	 }
+	 if (v == row * col - JDL)
+	 {
+		 printf("恭喜你赢咯\n");
+		 s(a, ROW, COL);
+	 }
+ }
+ 
+ ------------------------------------------------------------------------------------------------------------
+ 2.cpp
+ #define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+#include <string.h>
+#include <windows.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+# include "2.h"
+void game()
+{
+	char a[ROWS][COLS] = { 0 };
+	char show[ROWS][COLS] = { 0 };
+	//初始化
+	q(a, ROWS, COLS,'0');
+	q(show, ROWS, COLS,'*');
+	//棋盘打印
+	
+	s(show, ROW, COL);
+	//布置雷
+	l(a, ROW, COL);
+	s(a, ROW, COL);
+	//扫雷
+	o(a, show, ROW, COL);
+	
+
+}
+void bt()
+{
+	printf("************************\n");
+	printf("**********1.play********\n");
+	printf("**********0.exit********\n");
+	printf("************************\n");
+}
+
+int main()
+{
+	int a = 0;
+	srand((unsigned int) time(NULL));
+
+	do
+	{
+		bt();
+		printf("请输入>:");
+		scanf("%d", &a);
+		switch (a)
+		{
+		case 1:
+			printf("游戏开始\n");
+			game();
+			break;
+		case 0:
+			printf("游戏结束了\n");
+			break;
+		default:
+			printf("输入错误，请重新输入\n");
+			break;
+		}
+	} while (a);
+	return 0;
+}
