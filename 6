@@ -1,0 +1,406 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+#include <string.h>
+#include <windows.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+
+//int main() //求二进制位有几个1
+//{
+//	int a = 0;
+//	int b = 0;
+//	scanf("%d", &a);
+//	while (a)
+//	{ 
+//		if (a % 2 == 1)
+//		{
+//			b++;
+//		}
+//		a = a / 2;
+//	}
+//	printf("%d", b);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int i = 0;
+//	int a = 0;
+//	int b = 0;
+//	scanf("%d" ,&a);
+//	//00000000 00000000 00000000 00000011 3和1按位与
+//	//00000000 00000000 00000000 00000001 
+//	//00000000 00000000 00000000 00000001
+//	for (i = 0; i < 32; i++)
+//	{
+//		if ((a >> i) & 1== 1)
+//		{
+//			b++;
+//		}
+//	}
+//	printf("%d", b);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a[5] = {0};
+//	printf("%d", sizeof(int[5]));
+//	return 0;
+//}
+//
+//int main()
+//{
+//10000000 00000000 00000000 00000101
+//11111111 11111111 11111111 11111010
+//11111111 11111111 11111111 11111011
+//11111111 11111111 11111111 11111101
+//11111111 11111111 11111111 11111100
+//10000000 00000000 00000000 00000011
+
+//	int a = -5;
+//	printf("%d",a>>1 );
+//	return 0;
+//}
+
+//int main()
+//{
+//	short a = 0;
+//	int b = 10;
+//	printf("%d", sizeof(a = b + 5));
+//	printf("%d",  a);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a = 11;//1011->1111
+//	int i = 0;
+//	
+//	a = (a | (1 << 2));//1111->1011   
+//	printf("%d", a);
+//	//1111
+//	//1011
+//	//0100
+//	a = a & (~(1 << 2));
+//	printf("%d", a);
+//	
+//	
+//	return 0;
+//}
+//void s(int a[])
+//	{
+//		printf("%d\n",sizeof(a));
+//	}
+//void q(char b[])
+//{
+//	printf("%d\n", sizeof(b));
+//}
+//int main()
+//{
+//	int a[10] = { 0 };
+//	char b[10] = { 0 };
+//	printf("%d\n", sizeof a);
+//	printf("%d\n", sizeof (b));
+//	s(a);
+//	q(b);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int i = 0, a = 1, b = 2, c = 3, d = 4;
+//	i = a++ && ++b && d++;
+//	printf("a=%d b=%d c=%d d=%d", a, b, c, d);
+//	i = a++ || ++b || d++;
+//	printf("a=%d b=%d c=%d d=%d", a, b, c, d);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a = 0;
+//	printf("%d", sizeof(char*));
+//	return 0;
+//}
+
+//int main()
+//{
+//	char a = 3;
+//	char b = 127;
+//	char c = a + b;
+//	printf("%d", c);
+//	char q = 1;
+//	printf("%u", sizeof(+q));//4 整型提升
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a = 123;	
+//	int* p = &a;
+//	char* q =(char*) & a;
+//	printf("%p\n", p);
+//	printf("%p\n", p+1);
+//	printf("%p\n", q);
+//	printf("%p\n", q+1);
+//	return 0;
+//}
+
+//int main()
+//{														
+//	int arr[10] = { 0 };
+//	int* p = arr;
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		*(p+i) = 9;
+//		printf("%d", arr[i]);
+//	}
+//	
+//	return 0;
+//}
+//int main()
+//{
+//	int arr[10] = { 0 };
+//	char* p =(char*) arr;
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		*(p + i) = 9;
+//		printf("%d", arr[i]);
+//	}
+//
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 12;
+//	int* p = &a;
+//	*p = 13;
+//	
+//	if (p != NULL)
+//	{
+//		*p = 14;
+//		printf("%d", a);
+//	}
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int i = 0;
+//	int*p=arr;
+//	for (i = 0; i < 10;i++)
+//	{
+//		printf("%d", *p);
+//		p++;
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int i = 0;
+//	int* p = arr;
+//	for (i = 0; i < 5; i++)
+//	{
+//		printf("%d", *p);
+//		p+=2;
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int i = 0;
+//	int* p = &arr[9];
+//	for (i = 0; i < 5; i++)
+//	{
+//		printf("%d", *p);
+//		p-=2;
+//	}
+//	return 0;
+//}
+
+//int s(char* a)
+//{
+//	int i = 0;
+//	while (*a != '\0')
+//	{
+//		i++;
+//		a++;
+//	}
+//	return i;
+//}
+//int s(char* a)
+//{
+//	char* start = a;
+//	char* end = a;
+//	while (*end != '\0')
+//	{
+//		end++;
+//	}
+//	return end - start;
+//}
+//int main()
+//{
+//	char a[] = "bit";
+//	int len = s(a);
+//	printf("%d", len);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a[10] = { 0 };
+//	printf("%p\n", a);
+//	printf("%p\n", &a[0]);
+//	printf("%p\n", &a);
+//	return 0;
+//}
+
+//int main()//用指针访问数组
+//{
+//	int a[10] = { 0 };
+//	int* p = a;
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		*(p + i) = i;
+//	}
+//	for (i = 0; i < 10; i++)
+//	{
+//
+//		printf("%d\n", *(p+i));
+//		printf("%d\n", a[i]);
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 20;
+//	int* pa = &a;
+//	int** ppa = &pa;
+//	printf("%d", **ppa);//二级指针
+//	**ppa = 30;
+//	printf("%d", **ppa);
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	int c = 30;
+//	int* s[3] = { &a,&b,&c };
+//	*s[0] = 99;
+//	int i = 0;
+//	for (i = 0; i < 3; i++)
+//	{
+//		printf("%d ", *(s[i]));
+//	}
+//	return 0;
+//}
+
+//void s(int a[], int b)
+//{
+//	int left = 0;
+//	int right = b - 1;
+//	while (left <= right)
+//	{
+//		int z = 0;
+//		z = a[left];
+//		a[left] = a[right];
+//		a[right] = z;
+//		left++;
+//		right--;
+//	}
+//}
+//void print(int a[], int b)
+//{
+//	int i = 0;
+//	for (i = 0; i < b; i++)
+//	{
+//		printf("%d", a[i]);
+//	}
+//}
+//int main()
+//{
+//	int a[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int b = sizeof(a) / sizeof(int);
+//	print(a, b);
+//	s(a, b);
+//	print(a, b);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a[] = { 1,3,5,7,9 };
+//	int b[] = { 2,4,6,8,0 };
+//	int q = 0;
+//	int i = 0;
+//	int s = sizeof(a) / sizeof(int);
+//	for (i = 0; i < s; i++)
+//	{
+//		q = a[i];
+//		a[i] = b[i];
+//		b[i] = q;
+//	}
+//	for (i = 0; i < s; i++)
+//	{
+//		printf("%d", a[i]);
+//	}
+//	for (i = 0; i < s; i++)
+//	{
+//		printf("%d", b[i]);
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a[] = { 1,2,3,4,5 };
+//	short* p = (short*)a;
+//	int i = 0;
+//	for (i = 0; i < 4; i++)
+//	{
+//		*(p + i) = 0;
+//	}
+//	for (i = 0; i < 5; i++)
+//	{
+//		printf("%d", a[i]);
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a = 0x11223344;
+//	char* p = (char*)&a;
+//	*p = 0;
+//	printf("%x", a);
+//	return 0;
+//}
+
+//int i;
+//int main()
+//{
+//	i--;
+//	//10000000 00000000 00000000 00000001
+//	//11111111 11111111 11111111 11111110
+//	//11111111 11111111 11111111 11111111
+//	if (i > sizeof(i))
+//	{
+//		printf(">\n");
+//	}
+//	else
+//	{
+//		printf("<\n");
+//	}
+//	return 0;
+//}
