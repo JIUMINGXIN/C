@@ -1,0 +1,172 @@
+//struct stu
+//{
+//	char name[10];
+//	char age[10];
+//	char number[12];
+//};
+//typedef struct stu
+//{
+//	char name[10];
+//	char age[10];
+//	char number[12];
+//}lll;
+
+//int main()
+//{
+//	struct stu s1;
+//	lll s2;
+//	return 0;
+//}
+
+//struct stu//结构体嵌套
+//{
+//	int a;
+//	char arr[20];
+//	char q;
+//};
+//struct lll
+//{
+//	char s[20];
+//	struct stu t;
+//	int a;
+//
+//};
+//int main()
+//{
+//	struct lll box = { "abcd",{31,"hool",'w'},99 };
+//	printf("%s\n", box.s);
+//	printf("%d\n", box.t.a);
+//	printf("%s\n", box.t.arr);
+//	printf("%c\n", box.t.q);
+//	printf("%d\n", box.a);
+//	return 0;
+//}
+
+
+//typedef struct stu
+//{
+//	char name[10];
+//	char age[10];
+//	char number[12];
+//}lll;
+//
+//void s(lll s2)
+//{
+//	printf("%s", s2.name);
+//	printf("%s", s2.age);
+//	printf("%s", s2.number);
+//}
+//void q(lll* s2)
+//{
+//	printf("%s", s2->name);
+//	printf("%s", s2->age);
+//	printf("%s", s2->number);
+//}
+//int main()
+//{
+//	
+//	lll s2={"来来来","65","123456"};
+//	s(s2);
+//	q(&s2);
+//	return 0;
+//}
+
+//int main()//死循环
+//{
+//	
+//	int a[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//int i = 0;
+//	for (i = 0; i <= 12; i++)
+//	{
+//		printf("hehe\n");
+//		a[i] = 0;
+//		
+//	}
+//	return 0;
+//}
+
+//void s(char* a, char* b)//字符串拷贝方法1 6分
+//{
+//	while (*b != '\0')
+//	{
+//		*a = *b;
+//		a++;
+//		b++;
+//	}
+//	*a = *b;
+//}
+//void s(char* a, char* b)//方法2 7分
+//{
+//	if (a != NULL && b != NULL)
+//	{
+//		while (*a++ = *b++)
+//			{
+//				;
+//			}
+//	}
+//}
+//void s(char* a, char* b)//方法3 8分
+//{
+//		assert(a != NULL);
+//		assert(b != NULL);
+//		while (*a++ = *b++)
+//			{
+//				;
+//			}
+//}
+//char* s(char* a,const char* b)//方法4 10分
+//{
+//	char* red = a;
+//	assert(a != NULL );//断言
+//	assert(b != NULL);
+//	while (*a++ = *b++)//把b指向的字符串拷贝到a指向的空间，并且包含‘\0’
+//	{
+//		;
+//	}
+//	return red;
+//}
+//int main()
+//{
+//	char a[] = "**********";
+//	char b[] = "bit";
+//	s(a, b);
+//	printf("%s", a);
+//	return 0;
+//}
+
+//int s(const char* a)//计算字符段长度
+//{
+//	int count = 0;
+//	assert(a != NULL);
+//	while (*a != '\0')
+//	{
+//		count++;
+//		a++;
+//	}
+//	return count;
+//}
+//int main()
+//{
+//	char a[] = "abcdef";
+//	int q = 0;
+//	q = s(a);
+//	printf("%d", q);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int i = 0;
+//	for (i = 0; i < 1000; i++)
+//	{
+//		int a = i % 10;
+//		int b = (i / 10) % 10;
+//		int c = (i / 100 )% 10;
+//		if (i == (pow(a, 3) + pow(b, 3) + pow(c, 3))&&i>=100)
+//		{
+//			printf("%d\n", i);
+//		}
+//	}
+//
+//return 0;
+//}
