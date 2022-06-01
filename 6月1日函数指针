@@ -1,0 +1,50 @@
+//void test(int(*arr)[5])
+//{
+//
+//}
+//int main()
+//{
+//	int arr[3][5] = {0};
+//	test(arr);
+//
+//	return 0;
+//}
+
+//void test(int** p)
+//{
+//
+//}
+//int main()
+//{
+//	int* ptr;
+//	int** pp = &ptr;
+//	test(&ptr);
+//	test(pp);
+//	int* arr[10];
+//	test(arr);
+//	return 0;
+//}
+
+//int add(int x, int y)
+//{
+//	int z = x + y;
+//	return z;
+//}
+//int main()
+//{
+//	int (*p)(int,int) = add;//函数指针，是用来存放函数地址的指针
+//	printf("%d ", (*p)(2, 3));
+//	return 0;
+//}
+void print(const char* str)
+{
+	printf("%s\n", str);
+}
+int main()
+{
+	
+	void (*p)(const char*) = print;
+	(*p)("hello bit");
+
+	return 0;
+}
