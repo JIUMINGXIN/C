@@ -33,7 +33,7 @@
 //int main()
 //{
 //	int (*p)(int,int) = add;//函数指针，是用来存放函数地址的指针
-//	printf("%d ", (*p)(2, 3));
+//	printf("%d ", (*p)(2, 3));//printf("%d ",(p)(2,3))都一样但是含义不同p是print的地址，*p找到该函数的位置
 //	return 0;
 //}
 void print(const char* str)
@@ -44,7 +44,7 @@ int main()
 {
 	
 	void (*p)(const char*) = print;
-	(*p)("hello bit");
+	(*p)("hello bit");//(p)("hello bit")都一样但是含义不同p是print的地址，*p找到该函数的位置
 
 	return 0;
 }
