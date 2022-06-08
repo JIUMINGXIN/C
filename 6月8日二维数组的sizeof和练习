@@ -38,7 +38,7 @@ struct test
 //已知，结构体test类型的变量大小是20个字节
 int main()
 {
-	p = (struct test*)0x00000;
+	p = (struct test*)0x100000;
 	printf("%p\n", p + 0x1);//0x00100014-结构体指针加1是加20个字节
 	printf("%p\n",(unsigned long) p + 0x1);//0x00100001-把100000强制转换成10进制然后加1，最后再转换成16进制
 	printf("%p\n", (unsigned int *)p + 0x1);//0x00100004-把100000+4整型指针加1跳过4个字节
