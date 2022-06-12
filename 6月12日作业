@@ -1,0 +1,82 @@
+//int main()
+//{
+//	int money = 0;
+//	int total = 0;
+//	int empty = 0;
+//	scanf("%d", &money);//俩空瓶换一瓶
+	////买回来的汽水喝掉 方法1
+	//total = money;
+	//empty = total;
+	////换回来的汽水
+	//while (empty>=2)
+	//{
+	//	total=total+ empty / 2;
+	//	empty=empty % 2 + empty / 2;
+	//}
+//	if (money == 0)//方法2
+//	{
+//		total = 0;
+//	}
+//	else
+//		total = money * 2 - 1;
+//	printf("total=%d", total);
+//	return 0;
+//}
+
+//void move(int arr[], int sz)//方法1
+//{
+//	int left = 0;
+//	int right = sz - 1;
+//	int t = 0;
+//	while (left<right)
+//	{
+//		while ((left < right) && arr[left] % 2 == 1)
+//		{
+//			left++;
+//		}
+//		while ((left < right) && arr[right] % 2 == 0)
+//		{
+//			right--;
+//		}
+//		if (left < right)
+//		{
+//			t = arr[left];
+//			arr[left] = arr[right];
+//			arr[right] = t;
+//		}
+//	}
+//}
+void move(int arr[], int sz)//方法2
+{
+	int t = 0;
+	int i = 0;
+	int j = 0;
+	for (i = 0; i < sz-1; i++)
+	{
+		for (j = 0; j < sz - 1 - i; j++)
+		{
+			if (arr[j] % 2 == 0)
+			{
+			t = arr[j];
+			arr[j] = arr[j+1];
+			arr[j+1] = t;
+			}
+		}
+	}
+}
+void print(int arr[], int sz)
+{
+	int i = 0;
+	for (i = 0; i < sz; i++)
+	{
+		printf("%d ", arr[i]);
+	}
+}
+int main()
+{
+	int arr[] = { 1,2,3,4,5,6,7,8,9,10,11};
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	move(arr,sz);
+	print(arr, sz);
+	return 0;
+}
