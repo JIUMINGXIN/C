@@ -1,0 +1,6 @@
+1. 字符串翻转
+https://leetcode-cn.com/problems/reverse-string/
+
+2. 二进制中1的个数
+https://leetcode-cn.com/problems/number-of-1-bits
+
