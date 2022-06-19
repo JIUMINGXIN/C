@@ -1,0 +1,74 @@
+//int  my_strncmp(const char* str1, const char* str2, int a)
+//{
+//	int q = a;
+//	int w = 0;
+//	while (a)
+//	{	
+//		if (*str1 == *str2)
+//		{
+//			str1++;
+//			str2++;
+//			w++;
+//		}
+//		a--;
+//	}
+//	if (q == w)
+//	{
+//		return 0;
+//	}
+//	return (*str1 - *str2);
+//}
+//int main()
+//{
+//	const char* str1= "abcde";
+//	const char* str2 = "def";
+//	int ret = my_strncmp(str1, str2, 1);
+//	printf("%d", ret);
+//	return 0;
+//}
+
+char* my_strstr(const char* arr1, const char* arr2)
+{
+	assert(arr1);
+	assert(arr2);
+	char* s1;
+	char* s2;
+	char* c = (char*)arr1;
+	if (*arr2 == '\0')
+	{
+		return (char*)arr1;
+	}
+	while (c)
+	{
+		s1 = c;
+		s2 =(char*) arr2;
+		while (( * s1 == *s2)&&(*s1)&&(*s2))
+		{
+			s1++;
+			s2++;
+		}
+		if (*s2 == '\0')
+		{
+			return c;
+		}
+		if (*s1 == '\0')
+		{
+			return NULL;
+		}
+		c++;
+	}
+	return NULL;
+}
+int main()
+{
+	const char* arr1 = "abbbcdf";
+	const char* arr2 = "bbcedf";
+	char* ret = my_strstr(arr1, arr2);
+	if (ret == NULL)
+	{
+		printf("找不到");
+	}
+	else
+	printf("%s", ret);
+	return 0;
+}
