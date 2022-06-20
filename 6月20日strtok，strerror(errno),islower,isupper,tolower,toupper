@@ -1,0 +1,61 @@
+//int main()
+//{
+//	//char a[] = "abc@shool.com";
+//	//const char* p ="@.";
+//	char a[] = "192.168.1.10";
+//	char q[1024] = { 0 };
+//	strcpy(q, a);//因为strtok会直接改变a所以要临时拷贝一份
+//	const char* p = ".";
+//	char* ret = NULL;
+//	for (ret = strtok(a, p); ret != NULL; ret = strtok(NULL, p))
+//	{
+//		printf("%s\n", ret);//只走一次strtok(a, p)到后面都会标记一次分隔符的位置然后往后走
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	//错误码--错误信息
+//	//0--No error
+//	//1--Operation not permitted
+//	//2--No such file or directory
+//	//errno 是一个全局的错误码的变量
+//	//当c语言的库函数在执行过程中，发生了错误，就会把对应的错误码，赋值到errno中
+//	//char* str = strerror(errno);//把一个错误码翻译成一个错误信息
+//	//printf("%s", str);
+//	FILE* pf = fopen("test.txt", "r");//在存放2.cpp文件夹查找test.txt文件
+//	if (pf == NULL)//如果没有
+//	{
+//		printf("%s", strerror(errno));//没有文件打印No such file or directory
+//	}
+//	else
+//		printf("open file success");
+//	return 0;
+//}
+
+int main()
+{
+	//char a = 'a';
+	//int ret = islower(a);//判断是否是小写字符如果是返回非0，如果不是返回0
+	//int ret = isupper(a);//判断是否是大写字符如果是返回非0，如果不是返回0
+	//int ret = isdigit(a);//判断是否是数字字符如果是返回非0，如果不是返回0
+	//printf("%d", ret);
+
+	char a[] = "IM is AbC";//im IS aBc
+	int i = 0;
+	while (a[i])
+	{
+		if (islower(a[i]))//判断是不是小写字符
+		{
+			a[i] = toupper(a[i]);//把小写转换成大写
+		}
+		else if (isupper(a[i]))//判断是不是大写字符
+		{
+			a[i] = tolower(a[i]);//把大写转换成小写
+		}
+		printf("%c", a[i]);
+		i++;
+	}
+	return 0;
+}
