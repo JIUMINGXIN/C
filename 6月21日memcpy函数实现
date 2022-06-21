@@ -1,0 +1,27 @@
+void* my_memcpy(void* arr2, const void* arr1, size_t num)//只能处理内存不重叠的情况
+{
+	assert(arr2);
+	assert(arr1);
+	void* ret = arr2;
+	char* dest = (char*)arr2;
+	char* scr= (char*)arr1;
+	while (num--)
+	{
+		*dest = *scr;
+		dest++;
+		scr++;
+	}
+	return ret;
+}
+struct s
+{
+	char name[20];
+	int age;
+};
+int main()
+{
+	struct s arr1[] = { {"zhangsan",10},{"lisi",20} };
+	struct s arr2[3] = { 0 };
+	my_memcpy(arr2, arr1, sizeof(arr1));
+	return 0;
+}
