@@ -1,0 +1,39 @@
+//struct //匿名结构体 只能赶快建好变量不然在局部中创建不了了
+//{
+//
+//}s1,s2;
+//struct stu
+//{
+//	char name[20];
+//	int age[];
+//}x1,x2,x3;//结构体的全局变量
+//struct stu x4;//结构体的全局变量
+//typedef struct stu//结构体的自引用
+//{
+//	int age;
+//	struct stu* next;
+//}lll;//结构体重定义 struct stu改成lll
+//int main()
+//{
+//	struct stu x5;//结构体的局部变量
+//	return 0;
+//}
+
+//struct p
+//{
+//	double z;
+//	int e;
+//};
+//struct stu
+//{
+//	char q;
+//	struct p a;
+//	int age;
+//	double w;
+//};
+//int main()
+//{
+//	struct stu s = { 'h',{2.1,10},20,3.14 };
+//	printf("%c %lf %d %d %lf", s.q, s.a.z, s.a.e, s.age, s.w);
+//	return 0;
+//}
