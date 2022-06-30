@@ -1,0 +1,61 @@
+//enum s
+//{
+//	a,b=10,c
+//};
+//enum q
+//{
+//	z, x ,v
+//};
+//int main()
+//{
+//	printf("%d %d %d", a, b, c);//0 10 11
+//	printf("%d %d %d", z, x, v);//0 1 2
+//  printf("%d", sizeof(z));//4 因为枚举里都是整型
+//	return 0;
+//}
+
+//union s
+//{
+//	char a;
+//	int b;
+//	double c;
+//};
+//int main()
+//{
+//	union s u;
+//	printf("%d\n",sizeof(u) );//8  联合变量的大小，至少是最大成员的大小
+//
+//	printf("%p\n", &u);
+//	printf("%p\n",&(u.a));
+//	printf("%p\n", &(u.b));
+//	printf("%p\n", &(u.c));
+//	return 0;
+//}
+
+//int s()//方法1
+//{
+//	int a = 1;
+//	return *(char*) & a;
+//}
+int s()//方法2
+{
+	union q
+	{
+		char a;
+		int i;
+	}t;
+	t.i = 1;
+	return t.a;
+}
+int main()//判断是大端还是小端
+{
+	int a = 1;
+	int ret = s();
+	if (ret == 1)
+	{
+		printf("小端");
+	}
+	else
+		printf("大端");
+	return 0;
+}
