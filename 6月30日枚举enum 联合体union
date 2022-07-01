@@ -20,6 +20,12 @@
 //	int b;
 //	double c;
 //};
+//union s
+//{
+//	
+//	int a;//对齐数4
+//	char arr[5];//对齐数1
+//};
 //int main()
 //{
 //	union s u;
