@@ -1,0 +1,25 @@
+int main()
+{
+	int* p = (int*)malloc(10 * sizeof(int));//向内存申请10个整型空间,INT_MAX就超出
+	int i = 0;
+	if (p == NULL)//假如p申请的空间超出全部内存就会返回null
+	{
+		printf("%s\n", strerror(errno));//打印错误原因的一个方式
+	}
+	else
+	{
+		for (i = 0; i < 10; i++)//正常使用空间
+		{
+			*(p + i) = i;
+		}
+		for (i = 0; i < 10; i++)
+		{
+			printf("%d ", *(p + i));
+		}
+	}
+	//当动态申请的空间不再使用的时候
+	//就应该还给操作系统
+	free(p);//虽然空间释放掉了，但是起始地址还有，所以要null消除记忆
+	p = NULL;
+	return 0;
+}
