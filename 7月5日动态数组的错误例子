@@ -1,0 +1,55 @@
+//void getmemory(char* p)//错误例子
+//{
+//	p = (char*)malloc(100);
+//}
+//void test(void)
+//{
+//	char* str = NULL;
+//	getmemory(str);
+//	strcpy(str, "hello world");
+//	printf(str);
+//}
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+
+//void getmemory(char** p)//修正1
+//{
+//	*p = (char*)malloc(100);
+//}
+//void test(void)
+//{
+//	char* str = NULL;
+//	getmemory(&str);
+//	strcpy(str, "hello world");
+//	printf(str);
+// free(str);
+// str=NULL;
+//}
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+
+char* getmemory(char* p)//修正2
+{
+	p = (char*)malloc(100);
+	return p;
+}
+void test(void)
+{
+	char* str = NULL;
+	str=getmemory(str);
+	strcpy(str, "hello world");
+	printf(str);
+	free(str);
+	str = NULL;
+}
+int main()
+{
+	test();
+	return 0;
+}
