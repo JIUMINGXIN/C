@@ -1,0 +1,50 @@
+//int main()
+//{
+//	int a = 10000;
+//	FILE* pf = fopen("test.txt", "wb");
+//	fwrite(&a, 4, 1, pf);
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+//int main()
+//{
+//	FILE* pf = fopen("test.txt", "w");
+//	if (pf == NULL)
+//	{
+//		printf("%s\n", strerror(errno));
+//	}
+//	//写入文件
+//	fputc('b', pf);
+//	fputc('i', pf);
+//	fputc('t', pf);
+//	//关闭文件
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+//int main()
+//{
+//	FILE* pf = fopen("test.txt", "r");
+//	if (pf == NULL)
+//	{
+//		printf("%s\n", strerror(errno));
+//	}
+//	//读取文件
+//	printf("%c",fgetc(pf));//b
+//	printf("%c", fgetc(pf));//i
+//	printf("%c", fgetc(pf));//t
+//	//关闭文件
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+int main()
+{
+	int ch = fgetc(stdin);
+	fputc(ch, stdout);
+	return 0;
+}
