@@ -1,0 +1,100 @@
+//int main()
+//{
+//	char buf[1024] = { 0 };
+//	FILE* pf = fopen("test.txt", "r");
+//	if (pf == NULL)
+//	{
+//		return 0;
+//	}
+//	//读取一行文件
+//	fgets(buf, 1024, pf);
+//	printf("%s", buf);//bit
+//	fgets(buf, 1024, pf);
+//	printf("%s", buf);//hello
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+//int main()
+//{
+//	FILE* pf = fopen("text.txt", "w");
+//	if (pf == NULL)
+//	{
+//		return 0;
+//	}
+//	fputs("hello\n", pf);//hello
+//	fputs("bit", pf);//bit
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+//int main()
+//{
+//	char buf[1024] = { 0 };
+//	//fgets(buf, 1024, stdin);//从键盘上输入一行文本
+//	//fputs(buf, stdout);//从屏幕输出
+//
+//	gets_s(buf);//从键盘上输入一行文本
+//	puts(buf);//从屏幕输出
+//	return 0;
+//}
+
+//struct S
+//{
+//	int n;
+//	float s;
+//	char arr[10];
+//};
+//int main()
+//{
+//	struct S s = { 100,3.14,"bit" };
+//	FILE* pf = fopen("tese.txt", "w");
+//	if (pf == NULL)
+//	{
+//		return 0;
+//	}
+//	//格式化的形式写文件
+//	fprintf(pf, "%d %f %s", s.n, s.s, s.arr);
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+//struct S
+//{
+//	int n;
+//	float s;
+//	char arr[10];
+//};
+//int main()
+//{
+//	struct S s = {0 };
+//	FILE* pf = fopen("tese.txt", "r");
+//	if (pf == NULL)
+//	{
+//		return 0;
+//	}
+//	//格式化的形式读文件
+//	fscanf(pf,"%d %f %s",&(s.n),&(s.s),&(s.arr));
+//	printf("%d %f %s", (s.n), (s.s), (s.arr));
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+//struct S
+//{
+//	int n;
+//	float s;
+//	char arr[10];
+//};
+//int main()
+//{
+//	struct S s = { 0 };
+//
+//	//格式化的形式读文件
+//	fscanf(stdin, "%d %f %s", &(s.n), &(s.s), &(s.arr));
+//	fprintf(stdout,"%d %f %s", (s.n), (s.s), (s.arr));
+//	return 0;
+//}
